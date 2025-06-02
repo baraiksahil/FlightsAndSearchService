@@ -8,7 +8,7 @@
 - `PORT = 3000`
 - Inside the `src/config` folder create a new file `config.json` and then add the following piece of json
 
-'''
+```
 {
 "development": {
 "username": "<YOUR_USER_NAME>",
@@ -19,6 +19,6 @@
 }
 
 }
-'''
+```
 
 - once you've added your db config as listed above, go to the src folder from your terminal and execute `npx sequelize db:create`
