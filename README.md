@@ -10,15 +10,25 @@
 
 ```
 {
-"development": {
-"username": "<YOUR_USER_NAME>",
-"password": "<YOUR_PASSWORD>",
-"database": "<YOUR_DB_NAME>",
-"host": "127.0.0.1",
-"dialect": "mysql"
-}
-
+    "development": {
+    "username": "<YOUR_USER_NAME>",
+    "password": "<YOUR_PASSWORD>",
+    "database": "<YOUR_DB_NAME>",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+    }
 }
 ```
 
 - once you've added your db config as listed above, go to the src folder from your terminal and execute `npx sequelize db:create`
+
+## DB Design
+
+    - Airplane
+    - Flight
+    - City
+    - Airport
+
+    - A flight belongs to a airplane but one airplane can be used in multiple flights
+    - A city has many airports but one airport belongs to a city
+    - One airport can have many flights, but a flight belongs to one airport
