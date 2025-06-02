@@ -2,9 +2,9 @@
 const { City } = require("../models");
 
 class CityRepository {
-  async createCity({ names }) {
+  async createCity(names) {
     try {
-      const city = await City.create({ names });
+      const city = await City.create(names);
       return city;
     } catch (error) {
       console.log("Something went wrong in repository layer");
@@ -12,9 +12,9 @@ class CityRepository {
     }
   }
 
-  async deleteCity({ id }) {
+  async deleteCity(id) {
     try {
-      await City.destroy({
+      return await City.destroy({
         where: {
           id: id,
         },
@@ -25,10 +25,9 @@ class CityRepository {
     }
   }
 
-  async updateCity({ id, data }) {
+  async updateCity(id, data) {
     try {
-      const city = await City.update({
-        data: data,
+      const city = await City.update(data, {
         where: {
           id: id,
         },
@@ -40,9 +39,9 @@ class CityRepository {
     }
   }
 
-  async getCity({ id }) {
+  async getCity(id) {
     try {
-      const city = await City.findByPk({ id: id });
+      const city = await City.findByPk(id);
       return city;
     } catch (error) {
       console.log("Something went wrong in repository layer");
