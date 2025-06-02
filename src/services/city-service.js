@@ -2,7 +2,7 @@ const { CityRepository } = require("../repository/index");
 
 class CityService {
   constructor() {
-    this.cityRepository = new CityService();
+    this.cityRepository = new CityRepository();
   }
 
   async createCity(data) {
@@ -17,7 +17,8 @@ class CityService {
 
   async deleteCity(id) {
     try {
-      return await this.cityRepository.deleteCity(id);
+      let response = await this.cityRepository.deleteCity(id);
+      return response;
     } catch (error) {
       console.log("Something went wrong in the city service");
       throw error;
