@@ -1,3 +1,4 @@
+"use strict";
 const { CityRepository } = require("../repository/index");
 
 class CityService {
@@ -17,7 +18,7 @@ class CityService {
 
   async deleteCity(id) {
     try {
-      let response = await this.cityRepository.deleteCity(id);
+      const response = await this.cityRepository.deleteCity(id);
       return response;
     } catch (error) {
       console.log("Something went wrong in the city service");
