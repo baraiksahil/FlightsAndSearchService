@@ -1,4 +1,5 @@
 "use strict";
+const { Op } = require("sequelize");
 const { City } = require("../models");
 
 class CityRepository {
@@ -49,8 +50,19 @@ class CityRepository {
       throw error;
     }
   }
-  async getAllCity() {
+  async getAllCity(filter) {
     try {
+      if (filter) {
+        const city = await City.findAll({
+          where: {
+            names: {
+              [Op.startsWith]: filter.names,
+            },
+          },
+        });
+        return city;
+      }
+
       const city = await City.findAll();
       return city;
     } catch (error) {
