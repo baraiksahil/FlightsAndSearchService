@@ -16,17 +16,18 @@ module.exports = {
       address: {
         type: Sequelize.STRING,
       },
+
       cityId: {
-        cityId: {
-          type: DataTypes.INTEGER,
-          onDelete: "CASCADE",
-          references: {
-            model: "cities",
-            key: "id",
-            as: "cityId",
-          },
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: "CASCADE",
+        references: {
+          model: "cities",
+          key: "id",
+          as: "cityId",
         },
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

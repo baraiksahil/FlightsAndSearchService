@@ -24,12 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       address: DataTypes.STRING,
       cityId: {
         type: DataTypes.INTEGER,
-        onDelete: "CASCADE",
-        references: {
-          model: "cities",
-          key: "id",
-          as: "cityId",
-        },
+        allowNull: false,
       },
     },
     {
