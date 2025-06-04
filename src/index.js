@@ -8,6 +8,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 const express = require("express");
 const { PORT } = require("./config/serverConfig");
 const bodyParser = require("body-parser");
+const db = require("./models/index");
 
 const ApiRoutes = require("./routes/index");
 
@@ -20,7 +21,14 @@ const setupAndStartServer = async () => {
   app.use("/api", ApiRoutes);
 
   app.listen(PORT, async () => {
-    console.log(`Running on port ${PORT}`);
+    try {
+      console.log(`Running on port ${PORT}`);
+      if (process.env.SYNC_DB) {
+        db.sequelize.sync({ alter: true });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   });
 };
 

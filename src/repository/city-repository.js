@@ -1,6 +1,6 @@
 "use strict";
 const { Op } = require("sequelize");
-const { City } = require("../models");
+const { City } = require("../models/index");
 
 class CityRepository {
   async createCity(names) {
@@ -8,7 +8,7 @@ class CityRepository {
       const city = await City.create(names);
       return city;
     } catch (error) {
-      console.log("Something went wrong in repository layer");
+      console.log("Something went wrong in city repository layer");
       throw error;
     }
   }
@@ -22,7 +22,7 @@ class CityRepository {
       });
       return true;
     } catch (error) {
-      console.log("Something went wrong in repository layer");
+      console.log("Something went wrong in city repository layer");
       throw error;
     }
   }
@@ -36,7 +36,7 @@ class CityRepository {
       });
       return city;
     } catch (error) {
-      console.log("Something went wrong in repository layer");
+      console.log("Something went wrong in city repository layer");
       throw error;
     }
   }
@@ -46,7 +46,7 @@ class CityRepository {
       const city = await City.findByPk(id);
       return city;
     } catch (error) {
-      console.log("Something went wrong in repository layer");
+      console.log("Something went wrong in city repository layer");
       throw error;
     }
   }
@@ -66,7 +66,7 @@ class CityRepository {
       const city = await City.findAll();
       return city;
     } catch (error) {
-      console.log("Something went wrong in repository layer");
+      console.log("Something went wrong in city repository layer");
       throw error;
     }
   }
