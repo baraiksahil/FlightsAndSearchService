@@ -51,4 +51,10 @@ and then execute
 ```
 npx sequelize model:generate --name Airport --attributes name:String, address:String, cityId:integer
 
+npx sequelize seed:generate --name add-airports
+npx sequelize db:seed:all
+
+npx sequelize seed:generate --name add-airplanes
+npx sequelize db:seed:all
+
 ```
